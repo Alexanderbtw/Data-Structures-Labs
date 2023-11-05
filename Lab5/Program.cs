@@ -37,6 +37,14 @@
             Console.WriteLine("\nContains 2 and 11:");
             Console.WriteLine(array.Contains(2));
             Console.WriteLine(array.Contains(11));
+
+            Console.WriteLine("\nDublicates:");
+            var count = array.FindDublicates(out var dublicates);
+            Console.WriteLine(String.Format("Count: {0}", count));
+            foreach (var item in dublicates)
+            {
+                Console.WriteLine($"{item.Key}: {item.Value}");
+            }
         }
 
         static int[] FillArray(int size)

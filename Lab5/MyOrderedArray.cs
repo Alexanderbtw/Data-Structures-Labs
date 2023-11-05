@@ -143,6 +143,19 @@ namespace Lab5
             return (compare_counter, replace_counter);
         }
 
+        public int FindDublicates(out Dictionary<T, int> dublicates)
+        {
+            dublicates = new Dictionary<T, int>();
+            var count = 0;
+            foreach (var value in this)
+            {
+                dublicates[value] = dublicates.GetValueOrDefault(value, -1) + 1;
+                count++;
+            }
+            dublicates = dublicates.Where(item => item.Value > 0).ToDictionary(t => t.Key, t => t.Value);
+            return dublicates.Sum(t => t.Value);
+        }
+
         public int Find(T item)
         {
             for (int i = 0; i < Size; i++)

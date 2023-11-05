@@ -110,6 +110,21 @@ namespace Lab5.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void FindDublicates_112_Returnder1()
+        {
+            // Arrange
+            var array = new MyOrderedArray<int>(new int[] { 1, 1, 2 });
+            var expected_dublicates = new Dictionary<int, int>() { { 1, 1 } };
+
+            // Art
+            var actual_count = array.FindDublicates(out var actual_dublicates);
+
+            // Assert
+            Assert.AreEqual(1, actual_count);
+            CollectionAssert.AreEqual(expected_dublicates, actual_dublicates);
+        }
+
         [DataRow(1, true)]
         [DataRow(2, false)]
         [DataTestMethod]

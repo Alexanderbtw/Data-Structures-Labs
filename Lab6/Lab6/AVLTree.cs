@@ -201,7 +201,7 @@ namespace Lab6
 
         public void LevelOut()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void Clear()

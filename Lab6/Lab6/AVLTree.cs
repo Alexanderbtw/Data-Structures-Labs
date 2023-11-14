@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Lab6
 {
@@ -190,10 +185,7 @@ namespace Lab6
             }
             else
             {
-                if (Head != null)
-                {
-                    Head.Balance();
-                }
+                Head?.Balance();
             }
 
             return true;

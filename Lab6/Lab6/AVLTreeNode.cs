@@ -59,6 +59,14 @@ namespace Lab6
         public AVLTreeNode<TNode>? Parent { get; internal set; }
 
         public TNode Value { get; internal set; }
+
+        public int MaxHeight
+        {
+            get
+            {
+                return MaxChildHeight(this);
+            }
+        }
         #endregion
 
         #region Private Properties

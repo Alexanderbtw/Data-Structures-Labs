@@ -24,6 +24,13 @@
             Console.WriteLine(tree.ToString());
 
             tree.Display();
+            Console.WriteLine(tree.Count);
+
+            tree.LevelOut();
+            Console.WriteLine();
+
+            tree.Display();
+            Console.WriteLine(tree.Count);
         }
     }
 }

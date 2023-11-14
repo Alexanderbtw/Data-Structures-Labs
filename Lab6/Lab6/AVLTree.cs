@@ -201,7 +201,44 @@ namespace Lab6
 
         public void LevelOut()
         {
-            throw new NotImplementedException();
+            if (Head == null) return;
+
+            int targetLevel = Head.MaxHeight;
+            var stack = new Stack<(AVLTreeNode<T>, int)>();
+            stack.Push((Head, 1));
+            int count;
+
+            while ((count = stack.Count) > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    (AVLTreeNode<T> curr, int level) = stack.Pop();
+
+                    if (level == targetLevel - 1)
+                    {
+                        if (curr.Left == null)
+                        {
+                            curr.Left = new AVLTreeNode<T>(curr.Value, curr, this);
+                            Count++;
+                        }
+                            
+                        if (curr.Right == null)
+                        {
+                            curr.Right = new AVLTreeNode<T>(curr.Value, curr, this);
+                            Count++;
+                        }
+                    }
+                    else
+                    {
+                        if (curr.Left != null)
+                            stack.Push((curr.Left, level + 1));
+                        if (curr.Right != null)
+                            stack.Push((curr.Right, level + 1));
+                    }
+
+                    //curr.Balance();
+                }
+            }
         }
 
         public void Clear()
@@ -237,27 +274,6 @@ namespace Lab6
             if (Head != null)
             {
                 Display(Head);
-
-                #region Non-Recursive Display
-                //var stack = new Stack<AVLTreeNode<T>>();
-                //stack.Push(Head);
-                //int count;
-
-                //while ((count = stack.Count) > 0)
-                //{
-                //    for (int i = 0; i < count; i++)
-                //    {
-                //        var curr = stack.Pop();
-                //        Console.Write(string.Join("", Enumerable.Repeat(' ', Count - count)) + curr.Value.ToString());
-
-                //        if (curr.Right != null)
-                //            stack.Push(curr.Right);
-                //        if (curr.Left != null)
-                //            stack.Push(curr.Left);
-                //    }
-                //    Console.WriteLine();
-                //}
-                #endregion
             }
         }
 

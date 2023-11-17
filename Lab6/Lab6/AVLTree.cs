@@ -114,7 +114,7 @@ namespace Lab6
                     }
                     else if (result < 0)
                     {
-                        current.Parent.Right = current.Right;
+                        current.Parent.Right = current.Left;
                     }
                 }
             }

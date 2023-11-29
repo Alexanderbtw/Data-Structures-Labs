@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab7
+﻿namespace Lab7
 {
     public class SystemOfDisjointSets<TVertex>
         where TVertex : notnull, IComparable<TVertex>, IEquatable<TVertex>
